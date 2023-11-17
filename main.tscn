@@ -1,47 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbxjo0ahjdkgf"]
+[gd_scene load_steps=3 format=3 uid="uid://bbxjo0ahjdkgf"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_6rafe"]
-[ext_resource type="TileSet" uid="uid://bedk88rsh40um" path="res://environment/environment_tile_set.tres" id="2_yhn5h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_05reo"]
-size = Vector2(50, 50)
+[ext_resource type="PackedScene" uid="uid://dij2ltwr8fqcm" path="res://player/player.tscn" id="1_j27j5"]
+[ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_s2yne"]
 
 [node name="Main" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -54.0
-offset_top = -31.0
-offset_right = 1201.0
-offset_bottom = 673.0
+offset_left = -60.0
+offset_top = -37.0
+offset_right = 1195.0
+offset_bottom = 667.0
 color = Color(0.384314, 0.529412, 0.521569, 1)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(366, 302)
-script = ExtResource("1_6rafe")
-up_gravity = 35
-down_gravity = 60
+[node name="Player" parent="." instance=ExtResource("1_j27j5")]
+position = Vector2(364, 514)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_05reo")
-
-[node name="DebugColorRectOutOfShell" type="ColorRect" parent="Player"]
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-color = Color(0.356863, 0.266667, 0.305882, 1)
-
-[node name="DebugColorRectInShell" type="ColorRect" parent="Player"]
-visible = false
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-color = Color(0.282353, 0.313726, 0.192157, 1)
-
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(18, 25)
-scale = Vector2(0.335, 0.335)
-tile_set = ExtResource("2_yhn5h")
-format = 2
-layer_0/tile_data = PackedInt32Array(524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 393229, 0, 0, 327693, 0, 0, 262157, 0, 0, 196621, 0, 0, 131085, 0, 0, 65549, 0, 0, 13, 0, 0, -65523, 0, 0, -65524, 0, 0, -65525, 0, 0, -65526, 0, 0, -65527, 0, 0, -65528, 0, 0, -65529, 0, 0, -65530, 0, 0, -65531, 0, 0, -65532, 0, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -65536, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 393223, 0, 0, 327687, 0, 0, 393222, 0, 0)
+[node name="TileMap" parent="." instance=ExtResource("2_s2yne")]

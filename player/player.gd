@@ -13,8 +13,10 @@ var _current_speed : float = 0.0
 var _is_in_shell : bool = false
 var _coyote_timer : float
 
-@onready var debug_color_rect_out_of_shell = $DebugColorRectOutOfShell
-@onready var debug_color_rect_in_shell = $DebugColorRectInShell
+@onready var sprite = $Sprite
+
+const IN_COLOR = Color.GREEN
+const OUT_COLOR = Color.WHITE
 
 
 func _ready():
@@ -43,13 +45,11 @@ func _physics_process(delta):
 func _switch_state():
 	_is_in_shell = not _is_in_shell
 	if _is_in_shell:
-		debug_color_rect_in_shell.show()
-		debug_color_rect_out_of_shell.hide()
 		_current_speed = in_shell_speed
+		sprite.modulate = IN_COLOR
 	else:
-		debug_color_rect_in_shell.hide()
-		debug_color_rect_out_of_shell.show()
 		_current_speed = out_of_shell_speed
+		sprite.modulate = OUT_COLOR
 
 
 func _jump(delta):
