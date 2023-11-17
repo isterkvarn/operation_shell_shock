@@ -15,4 +15,4 @@ data_*/
 mono_crash.*.json
 
 # Lo's Asset Pack
-"lopanos asset packs/pack 1/fps 1"
+**/lopanos asset packs/pack 1/fps 1/
