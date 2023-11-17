@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdvwoinmougxm"]
+
+[ext_resource type="Script" path="res://turret/turret.gd" id="1_5w5x3"]
+[ext_resource type="Texture2D" uid="uid://d175x2fj2ba70" path="res://turret/turret.png" id="1_27i1s"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_5w5x3")
+mode = 1
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-17, 0)
+scale = Vector2(0.2, 0.209)
+texture = ExtResource("1_27i1s")
