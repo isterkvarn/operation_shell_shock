@@ -50,6 +50,7 @@ layer_0/tile_data = PackedInt32Array(524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 4
 
 [node name="Turret" parent="." node_paths=PackedStringArray("point") instance=ExtResource("3_daio0")]
 position = Vector2(96, 566)
+mode = 0
 point = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]

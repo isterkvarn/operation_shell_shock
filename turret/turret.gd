@@ -1,10 +1,10 @@
 extends Node2D
 
 enum TurretMode {TRACK_PLAYER, POINT}
+@export var firing_speed: float = 2.0
+@export var bullet_speed: float = 15.0
 @export var mode: TurretMode
 @export var point: Marker2D
-
-const FIRING_SPEED: float = 0.5
 
 @onready var laser = load("res://turret/bullet.tscn")
 @onready var sprite = $Sprite
@@ -27,7 +27,7 @@ func _process(delta):
 		sprite.look_at(player.get_position())
 	
 
-	if (time > FIRING_SPEED):
+	if (time > 1/firing_speed):
 		time = 0
 		_spawn_bullet()
 	
@@ -35,6 +35,7 @@ func _process(delta):
 
 func _spawn_bullet():
 	var laser_scene = laser.instantiate()
+	laser_scene.speed = bullet_speed
 
 	if mode == TurretMode.TRACK_PLAYER:
 		laser_scene.rotation = sprite.get_rotation()
@@ -42,8 +43,7 @@ func _spawn_bullet():
 		if point == null:
 			print("Add a marker to turret")
 			return
-		
-		
+
 		var direction: Vector2 = point.get_position() - get_position()
 		var angle: float = atan2(direction.y, direction.x)
 		laser_scene.rotation = angle
