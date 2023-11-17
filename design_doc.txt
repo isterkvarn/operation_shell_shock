@@ -1,3 +1,24 @@
 
  -= Fall Jam =-
 
+Goal:
+	- Ett spel som man kan spela
+	- UI:
+		- Simple start/tutorial menu
+	- Levels:
+		- En Bra Bana
+		- Death wall
+		- Obsticles
+			- Start/Slut
+			- Laser
+			- Turret
+	- Player:
+		- Two States
+		- Ljud effect?
+	- Music
+
+Ideas:
+	- Turrets
+	- Bounce FIeld
+	- Lasser
+	- Speed Bost/Jumpad
