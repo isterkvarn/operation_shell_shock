@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="LiU Game Jam - Fall 2023"
-run/main_scene="res://main.tscn"
+run/main_scene="res://levels/demo_level.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]
@@ -50,3 +51,4 @@ switch_state={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.129412, 0.309804, 0.490196, 1)

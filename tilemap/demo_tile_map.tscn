@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vy8vlwm3i6wm"]
+
+[ext_resource type="TileSet" uid="uid://bedk88rsh40um" path="res://environment/environment_tile_set.tres" id="1_c7534"]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource("1_c7534")
+format = 2
