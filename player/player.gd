@@ -13,10 +13,7 @@ var _current_speed : float = 0.0
 var _is_in_shell : bool = false
 var _coyote_timer : float
 
-@onready var sprite = $Sprite
-
-const IN_COLOR = Color.GREEN
-const OUT_COLOR = Color.WHITE
+@onready var sprite = $AnimatedSprite2D
 
 const IN_SHELL_SLOW = 300
 
@@ -40,6 +37,8 @@ func _physics_process(delta):
 			velocity.y += up_gravity
 		else:
 			velocity.y += down_gravity
+			
+	update_sprite()
 	
 	move_and_slide()
 
@@ -48,10 +47,8 @@ func _switch_state():
 	_is_in_shell = not _is_in_shell
 	if _is_in_shell:
 		_current_speed = in_shell_speed
-		sprite.modulate = IN_COLOR
 	else:
 		_current_speed = out_of_shell_speed
-		sprite.modulate = OUT_COLOR
 
 
 func _jump(delta):
@@ -75,7 +72,7 @@ func _out_of_shell(delta):
 func _in_shell(delta):
 	#var direction = Input.get_axis("ss_left", "ss_right")
 #	velocity.x = direction * _current_speed
-	if velocity.x != 0:
+	if velocity.x != 0 and is_on_floor():
 		velocity.x -= velocity.x/abs(velocity.x) * IN_SHELL_SLOW * delta
 	elif velocity.x > -IN_SHELL_SLOW and velocity.x < IN_SHELL_SLOW:
 		velocity.x = 0
@@ -83,3 +80,23 @@ func _in_shell(delta):
 func hit_by_bullet():
 	if not _is_in_shell:
 		get_tree().reload_current_scene()
+		
+func update_sprite():
+	
+	sprite.flip_h = velocity.x < 0
+	
+	if _is_in_shell:
+		if sprite.animation != "shell":
+			sprite.play("shell")
+		return
+	
+	if velocity.x != 0:
+		sprite.play("run")
+	else:
+		sprite.play("idel")
+	
+	if not is_on_floor():
+		if velocity.y < 0:
+			sprite.play("fall")
+		else:
+			sprite.play("jump")

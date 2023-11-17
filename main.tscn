@@ -10,10 +10,6 @@
 unique_name_in_owner = true
 position = Vector2(828, 331)
 scale = Vector2(0.2, 0.2)
-out_of_shell_speed = 800.0
-in_shell_speed = 800.0
-jump_velocity = 1600.0
-coyote_time = 0.1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -54.0

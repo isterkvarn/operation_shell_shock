@@ -51,4 +51,4 @@ switch_state={
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0.129412, 0.309804, 0.490196, 1)
+environment/defaults/default_clear_color=Color(0.411765, 0.266667, 0.0862745, 1)
