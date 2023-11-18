@@ -93,6 +93,12 @@ func _do_gravity():
 	else:
 		velocity.y += up_gravity_non_hold
 
+func bounce(speed: int):
+	if _is_in_shell:	
+		velocity.y = -speed
+	else:
+		_die()
+
 func hit_by_bullet():
 	if not _is_in_shell:
 		_die()
