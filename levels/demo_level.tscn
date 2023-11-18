@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=12 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://dgqbp3gw4ud44" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://checkpoints/check_point_master.gd" id="6_w1eft"]
 [ext_resource type="PackedScene" uid="uid://cfx5pf827g4vs" path="res://checkpoints/checkpoint.tscn" id="7_8hflx"]
 [ext_resource type="PackedScene" uid="uid://yjvt14nxcl3p" path="res://death_pit/death_pit.tscn" id="8_xti72"]
+[ext_resource type="PackedScene" uid="uid://d1wg3qv1gw60p" path="res://bounce_field/bounce_field.tscn" id="9_nxrwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cux2a"]
 size = Vector2(23815, 1600)
@@ -37,14 +38,14 @@ position = Vector2(10383, 1048)
 
 [node name="Turret2" parent="Turrets/Ob1" node_paths=PackedStringArray("point") instance=ExtResource("3_uepm8")]
 position = Vector2(849, 4)
-firing_speed = 0.25
+firing_speed = 0.4
 point = NodePath("../Marker2D2")
 
 [node name="Marker2D2" type="Marker2D" parent="Turrets/Ob1"]
 position = Vector2(-844, 4)
 
 [node name="Ob2" type="Node2D" parent="Turrets"]
-position = Vector2(16893, 1089)
+position = Vector2(15353, -1267)
 
 [node name="Turret" parent="Turrets/Ob2" instance=ExtResource("3_uepm8")]
 position = Vector2(92, -21)
@@ -87,14 +88,17 @@ position = Vector2(-5605, -49)
 
 [node name="Turret" parent="Turrets/Ob5" instance=ExtResource("3_uepm8")]
 position = Vector2(65030, 25)
+firing_speed = 0.3
 mode = 0
 
 [node name="Turret2" parent="Turrets/Ob5" instance=ExtResource("3_uepm8")]
 position = Vector2(64613, -2593)
+firing_speed = 0.3
 mode = 0
 
 [node name="Turret5" parent="Turrets/Ob5" instance=ExtResource("3_uepm8")]
 position = Vector2(55120, 1747)
+firing_speed = 0.3
 mode = 0
 
 [node name="DeathWall" parent="." instance=ExtResource("4_w7pqe")]
@@ -136,3 +140,6 @@ position = Vector2(54919, 4107)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPits/DeathPit2"]
 shape = SubResource("RectangleShape2D_ahm2b")
+
+[node name="BounceField" parent="." instance=ExtResource("9_nxrwg")]
+position = Vector2(59022, 1654)
