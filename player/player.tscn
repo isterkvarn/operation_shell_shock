@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnr7yd4dkepc0"]
+[gd_scene load_steps=19 format=3 uid="uid://cnr7yd4dkepc0"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_w07mu"]
 [ext_resource type="Texture2D" uid="uid://ir7n3j2o5qow" path="res://player/sprites/IMG_0062.png" id="2_lbj2m"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://ceje1jtwxs6l8" path="res://player/sprites/IMG_0060.png" id="11_iofck"]
 [ext_resource type="Texture2D" uid="uid://dc7tnstrcypub" path="res://player/sprites/IMG_0061.png" id="12_6guce"]
 [ext_resource type="Script" path="res://player/camera.gd" id="13_qlm8e"]
+[ext_resource type="AudioStream" uid="uid://rkrumadhh20x" path="res://sounds/jump.mp3" id="14_0uurl"]
+[ext_resource type="AudioStream" uid="uid://7sc2d6rdoc4n" path="res://sounds/switch.mp3" id="15_m0ipw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41rp2"]
 animations = [{
@@ -114,3 +116,9 @@ wiggle_room = 400.0
 
 [node name="CelingRayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -150)
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_0uurl")
+
+[node name="SwitchAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_m0ipw")

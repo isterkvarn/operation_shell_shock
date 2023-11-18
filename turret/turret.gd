@@ -11,6 +11,7 @@ enum TurretMode {TRACK_PLAYER, POINT}
 @onready var laser = load("res://turret/bullet.tscn")
 @onready var sprite = $Sprite
 @onready var player = %Player
+@onready var shoot_audio = $AudioStreamPlayer2D
 
 var time: float = 0.0
 
@@ -32,6 +33,7 @@ func _process(delta):
 
 	if (time > 1/firing_speed):
 		time = 0
+		shoot_audio.play()
 		_spawn_bullet()
 	
 	time += delta

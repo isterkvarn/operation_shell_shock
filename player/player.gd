@@ -20,6 +20,8 @@ var _coyote_timer : float
 @onready var checkpoint_master: Node2D = %CheckPointMaster
 @onready var camera_2d = $Camera2D
 @onready var celing_ray_cast_2d = $CelingRayCast2D
+#@onready var jump_audio = $JumpAudio
+@onready var switch_audio = $SwitchAudio
 
 
 func _ready():
@@ -27,6 +29,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("switch_state"):
+		switch_audio.play()
+	
 	if not celing_ray_cast_2d.is_colliding():
 		_update_state(Input.is_action_pressed("switch_state"))
 	
@@ -60,6 +65,7 @@ func _jump(delta):
 		_coyote_timer -= delta
 	
 	if Input.is_action_just_pressed("ss_jump") and _coyote_timer > 0:
+		#jump_audio.play()
 		velocity.y = -jump_velocity
 
 
