@@ -99,5 +99,4 @@ shape = SubResource("RectangleShape2D_fo7p5")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1782, -312)
-zoom = Vector2(0.18, 0.18)
+position = Vector2(-2, 0)
