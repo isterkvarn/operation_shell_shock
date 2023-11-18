@@ -10,6 +10,7 @@ const IN_SHELL_SLOW = 30
 @export var up_gravity_hold = 40
 @export var down_gravity = 40
 @export var coyote_time = 0.1
+@export var ground_friction = 5
 
 var _current_speed : float = 0.0
 var _is_in_shell : bool = false
@@ -31,7 +32,7 @@ func _physics_process(delta):
 		_switch_state()
 	
 	if _is_in_shell:
-		_in_shell()
+		_in_shell(delta)
 	else:
 		_out_of_shell(delta)
 	
@@ -70,14 +71,10 @@ func _out_of_shell(delta):
 	velocity.x = direction * _current_speed
 
 
-func _in_shell():
-	#var direction = Input.get_axis("ss_left", "ss_right")
-#	velocity.x = direction * _current_speed
-	if velocity.x != 0 and is_on_floor():
-		velocity.x -= velocity.x/abs(velocity.x) * IN_SHELL_SLOW
-		
-	if velocity.x > -IN_SHELL_SLOW*2 and velocity.x < IN_SHELL_SLOW*2:
-		velocity.x = 0
+func _in_shell(delta):
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, ground_friction * delta)
+
 
 func _do_gravity():
 	if is_on_floor():
