@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
 
-const IN_SHELL_SLOW = 30
-
 @export var out_of_shell_speed = 800.0
 @export var in_shell_speed = 800.0
 @export var jump_velocity = 1600.0
