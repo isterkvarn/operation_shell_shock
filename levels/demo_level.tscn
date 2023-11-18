@@ -46,7 +46,7 @@ point = NodePath("../Marker2D2")
 position = Vector2(-844, 4)
 
 [node name="Ob2" type="Node2D" parent="Turrets"]
-position = Vector2(15353, -1267)
+position = Vector2(16941, 52)
 
 [node name="Turret" parent="Turrets/Ob2" instance=ExtResource("3_uepm8")]
 position = Vector2(92, -21)
@@ -112,7 +112,7 @@ script = ExtResource("6_w1eft")
 checkpoints = [NodePath("Checkpoint"), NodePath("Checkpoint2"), NodePath("Checkpoint3"), NodePath("Checkpoint4"), NodePath("Checkpoint5")]
 
 [node name="Checkpoint" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
-position = Vector2(3874, 567)
+position = Vector2(2545, 627)
 
 [node name="Checkpoint2" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
 position = Vector2(-3921, 703)
