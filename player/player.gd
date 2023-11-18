@@ -37,9 +37,7 @@ func _physics_process(delta):
 		_out_of_shell(delta)
 	
 	_do_gravity()
-
 	update_sprite()
-	
 	move_and_slide()
 
 
@@ -64,7 +62,6 @@ func _jump(delta):
 
 
 func _out_of_shell(delta):
-	
 	_jump(delta)
 	
 	var direction = Input.get_axis("ss_left", "ss_right")
@@ -89,26 +86,28 @@ func _do_gravity():
 	else:
 		velocity.y += up_gravity_non_hold
 
+
 func bounce(speed: int):
 	if _is_in_shell:	
 		velocity.y = -speed
 	else:
-		_die()
+		die()
+
 
 func hit_by_bullet():
 	if not _is_in_shell:
-		_die()
-		
-func on_death_wall_collision():
-	_die()
+		die()
 
-func _die():
+
+func on_death_wall_collision():
+	die()
+
+
+func die():
 	checkpoint_master.restore()
 
-		
-		
+
 func update_sprite():
-	
 	sprite.flip_h = velocity.x < 0
 	
 	if _is_in_shell:
