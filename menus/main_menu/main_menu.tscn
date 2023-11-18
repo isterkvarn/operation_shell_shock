@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2es8hmsnywof"]
 
-[ext_resource type="Script" path="res://menues/main_menu/main_menu.gd" id="1_wpuni"]
+[ext_resource type="Script" path="res://menus/main_menu/main_menu.gd" id="1_i30df"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eixpp"]
 font_size = 46
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wpuni")
+script = ExtResource("1_i30df")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
