@@ -4,7 +4,7 @@ extends Node2D
 enum TurretMode {TRACK_PLAYER, POINT}
 
 @export var firing_speed: float = 0.5
-@export var bullet_speed: float = 15.0
+@export var bullet_speed: float = 1200.0
 @export var mode: TurretMode
 @export var point: Marker2D
 
