@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cfx5pf827g4vs"]
+
+[node name="Checkpoint" type="Area2D"]
