@@ -75,28 +75,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05reo"]
-size = Vector2(160, 349.5)
+size = Vector2(64, 140)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo7p5"]
-size = Vector2(160, 122)
+size = Vector2(64, 50)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_w07mu")
 down_gravity = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -102)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_41rp2")
 animation = &"shell"
 autoplay = "idel"
 
 [node name="CollisionShapeOut" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 61)
+position = Vector2(0, -70)
 shape = SubResource("RectangleShape2D_05reo")
 
 [node name="CollisionShapeIn" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 175)
+position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_fo7p5")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(505, -305)
