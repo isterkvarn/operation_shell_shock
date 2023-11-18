@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://je886pmtgyw3"
-path="res://.godot/imported/laser.png-1dc60b1903a467aa97e84e8b278426f2.ctex"
+uid="uid://yyy338ylwjqy"
+path="res://.godot/imported/turret_barrel.png-43c27f91d9b797b7fb5eff1e101fb55d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://turret/laser.png"
-dest_files=["res://.godot/imported/laser.png-1dc60b1903a467aa97e84e8b278426f2.ctex"]
+source_file="res://turret/sprites/turret_barrel.png"
+dest_files=["res://.godot/imported/turret_barrel.png-43c27f91d9b797b7fb5eff1e101fb55d.ctex"]
 
 [params]
 
