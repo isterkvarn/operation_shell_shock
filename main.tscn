@@ -1,8 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbxjo0ahjdkgf"]
+[gd_scene load_steps=18 format=3 uid="uid://bbxjo0ahjdkgf"]
 
+[ext_resource type="Script" path="res://player/player.gd" id="1_ah3e5"]
+[ext_resource type="Texture2D" uid="uid://3opi8sfsssde" path="res://player/sprites/IMG_0025.png" id="2_6k1hc"]
 [ext_resource type="TileSet" uid="uid://bedk88rsh40um" path="res://environment/environment_tile_set.tres" id="2_yhn5h"]
 [ext_resource type="PackedScene" uid="uid://cdvwoinmougxm" path="res://turret/turret.tscn" id="3_daio0"]
-[ext_resource type="PackedScene" uid="uid://dgqbp3gw4ud44" path="res://player/player.tscn" id="3_stjco"]
+[ext_resource type="Texture2D" uid="uid://dcxthgflxtaff" path="res://player/sprites/IMG_0020.png" id="3_wmqpp"]
+[ext_resource type="Texture2D" uid="uid://b835xohb4wo5a" path="res://player/sprites/IMG_0021.png" id="4_p2yji"]
+[ext_resource type="Texture2D" uid="uid://yowfsaxn0011" path="res://player/sprites/IMG_0022.png" id="5_w41pw"]
+[ext_resource type="Texture2D" uid="uid://t40hv4agic0o" path="res://player/sprites/IMG_0023.png" id="6_v8o8v"]
+[ext_resource type="Texture2D" uid="uid://ce3mg1sqqeyrx" path="res://player/sprites/IMG_0026.png" id="7_fw5hv"]
+[ext_resource type="Texture2D" uid="uid://br11c0g5h2gta" path="res://player/sprites/IMG_0016.png" id="8_h5t63"]
+[ext_resource type="Texture2D" uid="uid://cts1wsu4b72y6" path="res://player/sprites/IMG_0017.png" id="9_2y6p8"]
+[ext_resource type="Texture2D" uid="uid://bxyfwgmrohkrg" path="res://player/sprites/IMG_0018.png" id="10_i8628"]
+[ext_resource type="Texture2D" uid="uid://1ovqpurqh5nh" path="res://player/sprites/IMG_0019.png" id="11_2x0ja"]
+[ext_resource type="Texture2D" uid="uid://drnon0h4pabx6" path="res://player/sprites/IMG_0029.png" id="12_mql0e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41rp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6k1hc")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wmqpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p2yji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w41pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v8o8v")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fw5hv")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_h5t63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2y6p8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i8628")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2x0ja")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_mql0e")
+}],
+"loop": false,
+"name": &"shell",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05reo"]
+size = Vector2(64, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo7p5"]
+size = Vector2(64, 50)
 
 [node name="Main" type="Node2D"]
 
@@ -13,9 +91,29 @@ offset_right = 4221.0
 offset_bottom = 2868.0
 color = Color(0.160784, 0.160784, 0.160784, 1)
 
-[node name="Player" parent="." instance=ExtResource("3_stjco")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(908, 591)
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 unique_name_in_owner = true
 position = Vector2(214, 725)
+script = ExtResource("1_ah3e5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -102)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_41rp2")
+animation = &"shell"
+autoplay = "idel"
+
+[node name="CollisionShapeOut" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -70)
+shape = SubResource("RectangleShape2D_05reo")
+
+[node name="CollisionShapeIn" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_fo7p5")
+disabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_yhn5h")

@@ -31,9 +31,7 @@ position = Vector2(-1338, 624)
 out_of_shell_speed = 2600.0
 in_shell_speed = 300.0
 jump_velocity = 3000.0
-up_gravity_non_hold = 180
-up_gravity_hold = 90
-down_gravity = 220
+down_gravity = 100.0
 ground_friction = 1500
 
 [node name="Camera2D" parent="Player" index="3"]
