@@ -1,14 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://xym1pnfx5ye7"]
+[gd_scene load_steps=10 format=3 uid="uid://xym1pnfx5ye7"]
 
-[ext_resource type="Texture2D" uid="uid://dm2yudlwxu7ve" path="res://icon.svg" id="1_mu254"]
+[ext_resource type="Texture2D" uid="uid://djdqitbvpqrbo" path="res://laser_wall/Untitled_Artwork-1.png" id="1_8pm7h"]
+[ext_resource type="Script" path="res://laser_wall/laser_wall.gd" id="1_hp65v"]
+[ext_resource type="Texture2D" uid="uid://bsjir2j1oftc4" path="res://laser_wall/Untitled_Artwork-2.png" id="2_pa1nv"]
+[ext_resource type="Texture2D" uid="uid://cg7v2aj16duyk" path="res://laser_wall/Untitled_Artwork-3.png" id="3_o205s"]
+[ext_resource type="Texture2D" uid="uid://c2ihxscc42fb1" path="res://laser_wall/Untitled_Artwork-4.png" id="4_ap8b4"]
+[ext_resource type="Texture2D" uid="uid://vu1txg5s4q2y" path="res://laser_wall/Untitled_Artwork-5.png" id="5_x6hbo"]
+[ext_resource type="Texture2D" uid="uid://df57ru73r04s1" path="res://laser_wall/Untitled_Artwork-6.png" id="6_y4we2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i782x"]
+size = Vector2(20, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eiaad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8pm7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pa1nv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o205s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ap8b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x6hbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y4we2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="LaserWall" type="Area2D"]
+script = ExtResource("1_hp65v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i782x")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-texture = ExtResource("1_mu254")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_eiaad")
+frame_progress = 0.316579
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

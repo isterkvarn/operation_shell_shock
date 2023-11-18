@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://btwior5lyax08"]
+
+[ext_resource type="Script" path="res://laser_wall/laser_point.gd" id="1_6uqyp"]
+[ext_resource type="Texture2D" uid="uid://kypgxe5jep22" path="res://laser_wall/Untitled_Artwork-1_2.png" id="1_vqfes"]
+[ext_resource type="Texture2D" uid="uid://tgr253fvyi0y" path="res://laser_wall/Untitled_Artwork-2_2.png" id="2_755oo"]
+[ext_resource type="Texture2D" uid="uid://dc6ss0bjh4mbj" path="res://laser_wall/Untitled_Artwork-3_2.png" id="3_shwvm"]
+[ext_resource type="Texture2D" uid="uid://r14b5ttkhl51" path="res://laser_wall/Untitled_Artwork-4_2.png" id="4_dg5xk"]
+[ext_resource type="Texture2D" uid="uid://chy3f2ufwi6bf" path="res://laser_wall/Untitled_Artwork-5_2.png" id="5_a5d8y"]
+[ext_resource type="Texture2D" uid="uid://cxolrbktm3855" path="res://laser_wall/Untitled_Artwork-6_2.png" id="6_gyu5f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4q0d3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vqfes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_755oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_shwvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dg5xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a5d8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gyu5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="laser_point" type="Node2D"]
+script = ExtResource("1_6uqyp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_4q0d3")
