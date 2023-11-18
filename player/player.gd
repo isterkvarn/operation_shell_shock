@@ -5,8 +5,9 @@ extends CharacterBody2D
 @export var in_shell_speed = 800.0
 
 @export var jump_velocity = 1600.0
-@export var up_gravity = 9
-@export var down_gravity = 9
+@export var up_gravity_non_hold = 40
+@export var up_gravity_hold = 40
+@export var down_gravity = 40
 @export var coyote_time = 0.1
 
 var _current_speed : float = 0.0
@@ -14,8 +15,10 @@ var _is_in_shell : bool = false
 var _coyote_timer : float
 
 @onready var sprite = $AnimatedSprite2D
+@onready var out_col = $CollisionShapeOut
+@onready var in_col = $CollisionShapeIn
 
-const IN_SHELL_SLOW = 1500
+const IN_SHELL_SLOW = 40
 
 
 func _ready():
@@ -27,17 +30,12 @@ func _physics_process(delta):
 		_switch_state()
 	
 	if _is_in_shell:
-		_in_shell(delta)
+		_in_shell()
 	else:
 		_out_of_shell(delta)
 	
-	
-	if not is_on_floor():
-		if velocity.y < 0:
-			velocity.y += up_gravity
-		else:
-			velocity.y += down_gravity
-			
+	_do_gravity()
+
 	update_sprite()
 	
 	move_and_slide()
@@ -49,6 +47,8 @@ func _switch_state():
 		_current_speed = in_shell_speed
 	else:
 		_current_speed = out_of_shell_speed
+	out_col.set_deferred("disabled", _is_in_shell)
+	in_col.set_deferred("disabled", not _is_in_shell)
 
 
 func _jump(delta):
@@ -69,18 +69,32 @@ func _out_of_shell(delta):
 	velocity.x = direction * _current_speed
 
 
-func _in_shell(delta):
+func _in_shell():
 	#var direction = Input.get_axis("ss_left", "ss_right")
 #	velocity.x = direction * _current_speed
 	if velocity.x != 0 and is_on_floor():
-		velocity.x -= velocity.x/abs(velocity.x) * IN_SHELL_SLOW * delta
+		velocity.x -= velocity.x/abs(velocity.x) * IN_SHELL_SLOW
 		
-	if velocity.x > -IN_SHELL_SLOW*delta*2 and velocity.x < IN_SHELL_SLOW*delta*2:
+	if velocity.x > -IN_SHELL_SLOW*2 and velocity.x < IN_SHELL_SLOW*2:
 		velocity.x = 0
+
+func _do_gravity():
+	if is_on_floor():
+		return
+		
+	if velocity.y >= 0:
+		velocity.y += down_gravity
+		return
+		
+	if Input.is_action_pressed("ss_jump"):
+		velocity.y += up_gravity_hold
+	else:
+		velocity.y += up_gravity_non_hold
 
 func hit_by_bullet():
 	if not _is_in_shell:
 		get_tree().reload_current_scene()
+		
 		
 func update_sprite():
 	
