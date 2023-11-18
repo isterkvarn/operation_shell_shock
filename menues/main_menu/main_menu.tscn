@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2es8hmsnywof"]
+[gd_scene load_steps=5 format=3 uid="uid://c2es8hmsnywof"]
 
 [ext_resource type="Script" path="res://menues/main_menu/main_menu.gd" id="1_wpuni"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eixpp"]
+font_size = 46
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2joa"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_hue0d"]
+font_size = 21
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,3 +24,97 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wpuni")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.345098, 0.560784, 0.541176, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -206.0
+offset_right = 244.5
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Operation Shell Shock"
+label_settings = SubResource("LabelSettings_eixpp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -115.0
+offset_right = 226.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -97.0
+offset_right = -10.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X
+LS Left
+LS Right
+LS Down"
+label_settings = SubResource("LabelSettings_p2joa")
+horizontal_alignment = 2
+
+[node name="ActionLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -97.0
+offset_right = 240.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " - Jump
+ - Left
+ - Right
+ - Hide in Shell"
+label_settings = SubResource("LabelSettings_p2joa")
+
+[node name="StartLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = 66.5
+offset_right = 96.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press X to Start"
+label_settings = SubResource("LabelSettings_hue0d")
