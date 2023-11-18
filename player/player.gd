@@ -79,7 +79,14 @@ func _in_shell(delta):
 
 func hit_by_bullet():
 	if not _is_in_shell:
-		get_tree().reload_current_scene()
+		_die()
+		
+func on_death_wall_collision():
+	_die()
+
+func _die():
+	get_tree().reload_current_scene()
+
 		
 func update_sprite():
 	
