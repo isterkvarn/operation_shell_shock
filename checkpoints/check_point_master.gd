@@ -2,7 +2,7 @@ extends Node2D
 
 # How much the death wall should move back from
 # the checkpoint on a respawn
-const DEATH_WALL_OFFSET: int = 1000
+const DEATH_WALL_OFFSET: int = 6000
 
 @export var checkpoints: Array[Area2D]
 
