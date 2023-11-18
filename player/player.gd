@@ -18,6 +18,7 @@ var _coyote_timer : float
 @onready var out_col = $CollisionShapeOut
 @onready var in_col = $CollisionShapeIn
 @onready var checkpoint_master: Node2D = %CheckPointMaster
+@onready var camera_2d = $Camera2D
 
 
 func _ready():
@@ -107,7 +108,9 @@ func die():
 
 
 func update_sprite():
-	sprite.flip_h = velocity.x < 0
+	if not velocity.x == 0:
+		sprite.flip_h = velocity.x < 0
+		camera_2d.is_following_right = not sprite.flip_h
 	
 	if _is_in_shell:
 		if sprite.animation != "shell":
