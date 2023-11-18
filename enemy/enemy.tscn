@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0x4m2m8anjv1"]
+
+[ext_resource type="Script" path="res://enemy/Enemy.gd" id="1_d2vgl"]
+[ext_resource type="Texture2D" uid="uid://bcjxqv7a0kar" path="res://enemy/sprites/enem.png" id="2_yq5m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opl2o"]
+size = Vector2(250, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu47g"]
+size = Vector2(150, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qi4a"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(1098, 826)
+script = ExtResource("1_d2vgl")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="HazardHitbox" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("RectangleShape2D_opl2o")
+
+[node name="7up" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yq5m5")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_lu47g")
+
+[node name="MovementArea" type="Area2D" parent="."]
+
+[node name="MovementShape" type="CollisionShape2D" parent="MovementArea"]
+shape = SubResource("RectangleShape2D_1qi4a")
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_area_2d_body_entered"]

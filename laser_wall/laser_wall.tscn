@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xym1pnfx5ye7"]
+
+[ext_resource type="Texture2D" uid="uid://dm2yudlwxu7ve" path="res://icon.svg" id="1_mu254"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i782x"]
+
+[node name="LaserWall" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i782x")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_mu254")
