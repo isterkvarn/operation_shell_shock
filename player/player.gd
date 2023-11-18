@@ -110,7 +110,8 @@ func die():
 func update_sprite():
 	if not velocity.x == 0:
 		sprite.flip_h = velocity.x < 0
-		camera_2d.is_following_right = not sprite.flip_h
+		if camera_2d.updates_flip:
+			camera_2d.is_following_right = not sprite.flip_h
 	
 	if _is_in_shell:
 		if sprite.animation != "shell":
