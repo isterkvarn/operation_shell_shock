@@ -103,11 +103,28 @@ func hit_by_bullet():
 
 func on_death_wall_collision():
 	die()
+	
+func on_enemy_collision(enemy):
+	if not _is_in_shell:
+		die()
+		return
+	
+	# If shelled with little to no momentum, the enemy turns around
+	if(velocity.length() < 300):
+		enemy.change_direction()
+		return
 
+	# Kill if fast!!
+	enemy.die()
+	
+	# Do the bounce
+	velocity.x *= 0.35
+	
+	if(velocity.y > 0):
+		velocity.y *= -0.75
 
 func die():
 	checkpoint_master.restore()
-
 
 func update_sprite():
 	if not velocity.x == 0:
