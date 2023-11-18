@@ -18,7 +18,7 @@ var _coyote_timer : float
 @onready var out_col = $CollisionShapeOut
 @onready var in_col = $CollisionShapeIn
 
-const IN_SHELL_SLOW = 40
+const IN_SHELL_SLOW = 30
 
 @onready var checkpoint_master: Node2D = %CheckPointMaster
 

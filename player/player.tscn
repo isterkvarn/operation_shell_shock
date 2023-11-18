@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgqbp3gw4ud44"]
+[gd_scene load_steps=16 format=3 uid="uid://dgqbp3gw4ud44"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_w07mu"]
 [ext_resource type="Texture2D" uid="uid://ce3mg1sqqeyrx" path="res://player/sprites/IMG_0026.png" id="2_2ww6g"]
@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cts1wsu4b72y6" path="res://player/sprites/IMG_0017.png" id="8_3kswp"]
 [ext_resource type="Texture2D" uid="uid://bxyfwgmrohkrg" path="res://player/sprites/IMG_0018.png" id="9_cn3uk"]
 [ext_resource type="Texture2D" uid="uid://1ovqpurqh5nh" path="res://player/sprites/IMG_0019.png" id="10_25ytk"]
-[ext_resource type="Texture2D" uid="uid://bq5cj2lv36ejg" path="res://player/sprites/IMG_0027.png" id="11_3ioj5"]
-[ext_resource type="Texture2D" uid="uid://e7t43ex60r3" path="res://player/sprites/IMG_0028.png" id="12_c0flm"]
 [ext_resource type="Texture2D" uid="uid://drnon0h4pabx6" path="res://player/sprites/IMG_0029.png" id="13_t2yay"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41rp2"]
@@ -69,12 +67,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_3ioj5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_c0flm")
-}, {
-"duration": 1.0,
 "texture": ExtResource("13_t2yay")
 }],
 "loop": false,
@@ -107,5 +99,5 @@ shape = SubResource("RectangleShape2D_fo7p5")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1782, -533)
-zoom = Vector2(0.2, 0.2)
+position = Vector2(1782, -312)
+zoom = Vector2(0.18, 0.18)
