@@ -1,8 +1,10 @@
 extends Area2D
 
+
 const PLAYER_GROUP: String = "player"
 
 var check_point_master: Node2D
+
 
 func init(master: Node2D):
 	check_point_master = master

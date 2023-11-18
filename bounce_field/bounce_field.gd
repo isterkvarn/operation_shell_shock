@@ -1,9 +1,11 @@
 extends Area2D
 
+
 const PLAYER_GROUP: String = "player"
 
 @export var speed: int = 5000
 @onready var player = %Player
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

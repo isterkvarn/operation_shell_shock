@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
+const IN_SHELL_SLOW = 30
+
 @export var out_of_shell_speed = 800.0
 @export var in_shell_speed = 800.0
-
 @export var jump_velocity = 1600.0
 @export var up_gravity_non_hold = 40
 @export var up_gravity_hold = 40
@@ -17,10 +18,8 @@ var _coyote_timer : float
 @onready var sprite = $AnimatedSprite2D
 @onready var out_col = $CollisionShapeOut
 @onready var in_col = $CollisionShapeIn
-
-const IN_SHELL_SLOW = 30
-
 @onready var checkpoint_master: Node2D = %CheckPointMaster
+
 
 func _ready():
 	_current_speed = out_of_shell_speed

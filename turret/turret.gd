@@ -1,6 +1,8 @@
 extends Node2D
 
+
 enum TurretMode {TRACK_PLAYER, POINT}
+
 @export var firing_speed: float = 0.5
 @export var bullet_speed: float = 15.0
 @export var mode: TurretMode
@@ -11,6 +13,7 @@ enum TurretMode {TRACK_PLAYER, POINT}
 @onready var player = %Player
 
 var time: float = 0.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
