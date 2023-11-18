@@ -15,7 +15,7 @@ var _coyote_timer : float
 
 @onready var sprite = $AnimatedSprite2D
 
-const IN_SHELL_SLOW = 300
+const IN_SHELL_SLOW = 1500
 
 
 func _ready():
@@ -74,7 +74,8 @@ func _in_shell(delta):
 #	velocity.x = direction * _current_speed
 	if velocity.x != 0 and is_on_floor():
 		velocity.x -= velocity.x/abs(velocity.x) * IN_SHELL_SLOW * delta
-	elif velocity.x > -IN_SHELL_SLOW and velocity.x < IN_SHELL_SLOW:
+		
+	if velocity.x > -IN_SHELL_SLOW*delta*2 and velocity.x < IN_SHELL_SLOW*delta*2:
 		velocity.x = 0
 
 func hit_by_bullet():
