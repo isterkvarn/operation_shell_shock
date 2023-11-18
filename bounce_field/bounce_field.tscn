@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1wg3qv1gw60p"]
+
+[ext_resource type="Texture2D" uid="uid://dhkuar86tr4h8" path="res://bounce_field/bounce_field.png" id="1_88ekn"]
+[ext_resource type="Script" path="res://bounce_field/bounce_field.gd" id="1_stdff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2bvl"]
+size = Vector2(839, 101)
+
+[node name="BounceField" type="Area2D"]
+script = ExtResource("1_stdff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11.5, 0.5)
+shape = SubResource("RectangleShape2D_f2bvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_88ekn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

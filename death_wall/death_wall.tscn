@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://death_wall/death_wall.gd" id="1_6py5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnvpk"]
-size = Vector2(237, 176.1)
+size = Vector2(264, 646.6)
 
 [node name="DeathWall" type="Area2D"]
 script = ExtResource("1_6py5s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-24.5, -3.49994)
+position = Vector2(-38, -166)
 scale = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_rnvpk")
 
