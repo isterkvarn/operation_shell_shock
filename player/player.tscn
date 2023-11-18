@@ -110,3 +110,6 @@ position = Vector2(-412, -306)
 top_level = true
 script = ExtResource("13_qlm8e")
 wiggle_room = 400.0
+
+[node name="CelingRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -150)

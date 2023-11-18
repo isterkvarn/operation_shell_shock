@@ -19,6 +19,7 @@ var _coyote_timer : float
 @onready var in_col = $CollisionShapeIn
 @onready var checkpoint_master: Node2D = %CheckPointMaster
 @onready var camera_2d = $Camera2D
+@onready var celing_ray_cast_2d = $CelingRayCast2D
 
 
 func _ready():
@@ -26,7 +27,8 @@ func _ready():
 
 
 func _physics_process(delta):
-	_update_state(Input.is_action_pressed("switch_state"))
+	if not celing_ray_cast_2d.is_colliding():
+		_update_state(Input.is_action_pressed("switch_state"))
 	
 	if _is_in_shell:
 		_in_shell(delta)
@@ -69,7 +71,7 @@ func _out_of_shell(delta):
 
 
 func _in_shell(delta):
-	if is_on_floor():
+	if is_on_floor() and not celing_ray_cast_2d.is_colliding():
 		velocity.x = move_toward(velocity.x, 0, ground_friction * delta)
 
 
@@ -88,7 +90,7 @@ func _do_gravity():
 
 
 func bounce(speed: int):
-	if _is_in_shell:	
+	if _is_in_shell:
 		velocity.y = -speed
 	else:
 		die()
