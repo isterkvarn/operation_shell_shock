@@ -18,6 +18,13 @@ size = Vector2(21796, 1937)
 
 [node name="DemoLevel" type="Node2D"]
 
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+offset_left = -22247.0
+offset_top = -15822.0
+offset_right = 78384.0
+offset_bottom = 16821.0
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_jjy5y")]
 unique_name_in_owner = true
 position = Vector2(-3906, 598)
