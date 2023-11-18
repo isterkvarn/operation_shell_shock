@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://d1wg3qv1gw60p" path="res://bounce_field/bounce_field.tscn" id="9_nxrwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cux2a"]
-size = Vector2(23815, 1600)
+size = Vector2(12558, 1600)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahm2b"]
-size = Vector2(21796, 1937)
+size = Vector2(10412, 1386)
 
 [node name="DemoLevel" type="Node2D"]
 
@@ -27,7 +27,7 @@ color = Color(0.160784, 0.160784, 0.160784, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_jjy5y")]
 unique_name_in_owner = true
-position = Vector2(-3906, 598)
+position = Vector2(-1338, 624)
 out_of_shell_speed = 2600.0
 in_shell_speed = 300.0
 jump_velocity = 3000.0
@@ -45,7 +45,7 @@ layer_0/tile_data = PackedInt32Array(327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 3
 [node name="Turrets" type="Node2D" parent="."]
 
 [node name="Ob1" type="Node2D" parent="Turrets"]
-position = Vector2(10383, 1048)
+position = Vector2(6437, 541)
 
 [node name="Turret2" parent="Turrets/Ob1" node_paths=PackedStringArray("point") instance=ExtResource("3_uepm8")]
 position = Vector2(849, 4)
@@ -56,13 +56,14 @@ point = NodePath("../Marker2D2")
 position = Vector2(-844, 4)
 
 [node name="Ob2" type="Node2D" parent="Turrets"]
-position = Vector2(16941, 52)
+position = Vector2(16949, 363)
 
 [node name="Turret" parent="Turrets/Ob2" instance=ExtResource("3_uepm8")]
 position = Vector2(92, -21)
 mode = 0
 
 [node name="Ob3" type="Node2D" parent="Turrets"]
+position = Vector2(-4846, -1147)
 
 [node name="Turret" parent="Turrets/Ob3" node_paths=PackedStringArray("point") instance=ExtResource("3_uepm8")]
 position = Vector2(24796, 1594)
@@ -79,10 +80,10 @@ point = NodePath("../Marker2D2")
 position = Vector2(27485, -7)
 
 [node name="Ob4" type="Node2D" parent="Turrets"]
-position = Vector2(42221, 457)
+position = Vector2(28373, 770)
 
 [node name="Turret" parent="Turrets/Ob4" node_paths=PackedStringArray("point") instance=ExtResource("3_uepm8")]
-position = Vector2(-10, -466)
+position = Vector2(-52, -304)
 point = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Turrets/Ob4"]
@@ -96,25 +97,26 @@ point = NodePath("../Marker2D3")
 position = Vector2(-5605, -49)
 
 [node name="Ob5" type="Node2D" parent="Turrets"]
+position = Vector2(-28103, 1104)
 
 [node name="Turret" parent="Turrets/Ob5" instance=ExtResource("3_uepm8")]
-position = Vector2(65030, 25)
+position = Vector2(59360, -2905)
 firing_speed = 0.3
 mode = 0
 
 [node name="Turret2" parent="Turrets/Ob5" instance=ExtResource("3_uepm8")]
-position = Vector2(64613, -2593)
+position = Vector2(59875, -2859)
 firing_speed = 0.3
 mode = 0
 
 [node name="Turret5" parent="Turrets/Ob5" instance=ExtResource("3_uepm8")]
-position = Vector2(55120, 1747)
+position = Vector2(58906, -2877)
 firing_speed = 0.3
 mode = 0
 
 [node name="DeathWall" parent="." instance=ExtResource("4_w7pqe")]
 unique_name_in_owner = true
-position = Vector2(-8860, 582)
+position = Vector2(-3317, 582)
 
 [node name="CheckPointMaster" parent="." node_paths=PackedStringArray("checkpoints") instance=ExtResource("5_bjulw")]
 unique_name_in_owner = true
@@ -122,36 +124,37 @@ script = ExtResource("6_w1eft")
 checkpoints = [NodePath("Checkpoint"), NodePath("Checkpoint2"), NodePath("Checkpoint3"), NodePath("Checkpoint4"), NodePath("Checkpoint5")]
 
 [node name="Checkpoint" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
-position = Vector2(2545, 627)
+position = Vector2(6049, 327)
 
 [node name="Checkpoint2" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
-position = Vector2(-3921, 703)
+position = Vector2(-1339, 611)
 
 [node name="Checkpoint3" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
-position = Vector2(20580, -800)
+position = Vector2(15853, 392)
 
 [node name="Checkpoint4" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
-position = Vector2(32335, 510)
+position = Vector2(22673, 137)
 
 [node name="Checkpoint5" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
-position = Vector2(45006, 510)
+position = Vector2(33070, -546)
 
 [node name="DeathPits" type="Node2D" parent="."]
 
 [node name="DeathPit" parent="DeathPits" instance=ExtResource("8_xti72")]
-position = Vector2(26056, 2401)
+position = Vector2(6896, 1537)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPits/DeathPit"]
-position = Vector2(4716.5, 206)
+position = Vector2(8465, 206)
 shape = SubResource("RectangleShape2D_cux2a")
 
 [node name="DeathPit2" parent="DeathPits" instance=ExtResource("8_xti72")]
-position = Vector2(54919, 4107)
+position = Vector2(27847, 2054)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPits/DeathPit2"]
 shape = SubResource("RectangleShape2D_ahm2b")
 
 [node name="BounceField" parent="." instance=ExtResource("9_nxrwg")]
-position = Vector2(59022, 1654)
+position = Vector2(29513, 788)
+scale = Vector2(0.605, 0.605)
 
 [editable path="Player"]
