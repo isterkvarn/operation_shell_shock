@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=10 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://dgqbp3gw4ud44" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://fvvsyketqois" path="res://checkpoints/check_point_master.tscn" id="5_bjulw"]
 [ext_resource type="Script" path="res://checkpoints/check_point_master.gd" id="6_w1eft"]
 [ext_resource type="PackedScene" uid="uid://cfx5pf827g4vs" path="res://checkpoints/checkpoint.tscn" id="7_8hflx"]
+[ext_resource type="PackedScene" uid="uid://yjvt14nxcl3p" path="res://death_pit/death_pit.tscn" id="8_xti72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cux2a"]
+size = Vector2(9423, 1600)
 
 [node name="DemoLevel" type="Node2D"]
 
@@ -83,10 +87,20 @@ speed = 40.0
 [node name="CheckPointMaster" parent="." node_paths=PackedStringArray("checkpoints") instance=ExtResource("5_bjulw")]
 unique_name_in_owner = true
 script = ExtResource("6_w1eft")
-checkpoints = [NodePath("Checkpoint"), NodePath("Checkpoint2")]
+checkpoints = [NodePath("Checkpoint"), NodePath("Checkpoint2"), NodePath("Checkpoint3")]
 
 [node name="Checkpoint" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
 position = Vector2(3874, 567)
 
 [node name="Checkpoint2" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
 position = Vector2(-3921, 703)
+
+[node name="Checkpoint3" parent="CheckPointMaster" instance=ExtResource("7_8hflx")]
+position = Vector2(32096, 648)
+
+[node name="DeathPit" parent="." instance=ExtResource("8_xti72")]
+position = Vector2(26056, 2401)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPit"]
+position = Vector2(331.5, 206)
+shape = SubResource("RectangleShape2D_cux2a")

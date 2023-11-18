@@ -20,6 +20,7 @@ var _coyote_timer : float
 
 const IN_SHELL_SLOW = 40
 
+@onready var checkpoint_master: Node2D = %CheckPointMaster
 
 func _ready():
 	_current_speed = out_of_shell_speed
@@ -100,7 +101,7 @@ func on_death_wall_collision():
 	_die()
 
 func _die():
-	get_tree().reload_current_scene()
+	checkpoint_master.restore()
 
 		
 		
