@@ -9,6 +9,7 @@ enum TurretMode {TRACK_PLAYER, POINT}
 @onready var laser = load("res://turret/bullet.tscn")
 @onready var sprite = $Sprite
 @onready var player = %Player
+@onready var checkpoint_master = %CheckPointMaster
 
 var time: float = 0.0
 
@@ -35,6 +36,7 @@ func _process(delta):
 
 func _spawn_bullet():
 	var laser_scene = laser.instantiate()
+	laser_scene.set_checkpoint_master(checkpoint_master)
 	laser_scene.speed = bullet_speed
 
 	if mode == TurretMode.TRACK_PLAYER:
