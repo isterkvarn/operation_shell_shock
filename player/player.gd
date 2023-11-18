@@ -27,9 +27,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if ((Input.is_action_just_pressed("switch_state") and not _is_in_shell) or 
-		Input.is_action_just_released("switch_state") and _is_in_shell):
-		_switch_state()
+	_update_state(Input.is_action_pressed("switch_state"))
 	
 	if _is_in_shell:
 		_in_shell(delta)
@@ -41,8 +39,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _switch_state():
-	_is_in_shell = not _is_in_shell
+func _update_state(new_state):
+	if new_state == _is_in_shell:
+		return
+	
+	_is_in_shell = new_state
 	if _is_in_shell:
 		_current_speed = in_shell_speed
 	else:
@@ -64,8 +65,8 @@ func _jump(delta):
 func _out_of_shell(delta):
 	_jump(delta)
 	
-	var direction = Input.get_axis("ss_left", "ss_right")
-	velocity.x = direction * _current_speed
+	var _direction = Input.get_axis("ss_left", "ss_right")
+	velocity.x = _direction * _current_speed
 
 
 func _in_shell(delta):
@@ -76,11 +77,11 @@ func _in_shell(delta):
 func _do_gravity():
 	if is_on_floor():
 		return
-		
+	
 	if velocity.y >= 0:
 		velocity.y += down_gravity
 		return
-		
+	
 	if Input.is_action_pressed("ss_jump"):
 		velocity.y += up_gravity_hold
 	else:
