@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=5 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://dgqbp3gw4ud44" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
 [ext_resource type="PackedScene" uid="uid://cdvwoinmougxm" path="res://turret/turret.tscn" id="3_w31rn"]
+[ext_resource type="PackedScene" uid="uid://rufm4nojtjd7" path="res://death_wall/death_wall.tscn" id="4_w7pqe"]
 
 [node name="DemoLevel" type="Node2D"]
 
@@ -118,3 +119,6 @@ mode = 0
 [node name="Turret3" parent="Turrets/Obs4" instance=ExtResource("3_w31rn")]
 position = Vector2(3458, 540)
 mode = 0
+
+[node name="DeathWall" parent="." instance=ExtResource("4_w7pqe")]
+position = Vector2(419, 492)
