@@ -3,7 +3,7 @@ extends Area2D
 
 const PLAYER_GROUP: String = "player"
 
-@export var speed: int = 5000
+@export var speed: int = 3000
 @onready var player = %Player
 
 

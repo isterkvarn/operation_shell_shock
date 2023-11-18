@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 
-@export var out_of_shell_speed = 800.0
+@export var out_of_shell_speed = 1200.0
 @export var in_shell_speed = 400.0
 @export var jump_velocity = 1600.0
 @export var up_gravity_non_hold = 60.0
 @export var up_gravity_hold = 60.0
 @export var down_gravity = 100.0
 @export var coyote_time = 0.1
-@export var ground_friction = 5
+@export var ground_friction = 750
 
 var _current_speed : float = 0.0
 var _is_in_shell : bool = false
