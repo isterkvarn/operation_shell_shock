@@ -12,6 +12,7 @@ enum TurretMode {TRACK_PLAYER, POINT}
 @onready var base_sprite = $TurretBase
 @onready var barrel = $Barrel
 @onready var player = %Player
+@onready var shoot_audio = $AudioStreamPlayer2D
 
 var time: float = 0.0
 
@@ -35,6 +36,7 @@ func _update_shooting_interval(delta):
 	if (time > 1 / firing_speed):
 		time = 0
 		_do_the_shooty()
+		shoot_audio.play()
 	
 	time += delta
 	

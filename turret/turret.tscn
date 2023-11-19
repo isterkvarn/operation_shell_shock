@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdvwoinmougxm"]
+[gd_scene load_steps=9 format=3 uid="uid://cdvwoinmougxm"]
 
 [ext_resource type="Script" path="res://turret/turret.gd" id="1_5w5x3"]
 [ext_resource type="Texture2D" uid="uid://dxsvuusx3p34" path="res://turret/sprites/turret_base.png" id="2_geio8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2absjav84m6p" path="res://turret/sprites/turret_shoot_1.png" id="4_ndn6c"]
 [ext_resource type="Texture2D" uid="uid://g5g5crw40tkn" path="res://turret/sprites/turret_shoot_2.png" id="5_78xbc"]
 [ext_resource type="Texture2D" uid="uid://bii8pfcryx14t" path="res://turret/sprites/turret_shoot_3.png" id="6_74lqe"]
+[ext_resource type="AudioStream" uid="uid://4n1m31q31ndv" path="res://sounds/shoot.mp3" id="7_q78r5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6v7cx"]
 animations = [{
@@ -40,3 +41,6 @@ texture = ExtResource("2_geio8")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6v7cx")
 animation = &"the_shooty"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_q78r5")

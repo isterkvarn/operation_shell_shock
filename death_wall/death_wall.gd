@@ -1,8 +1,12 @@
 extends Area2D
 
 
-@export var speed: float = 2000.0
+@export var speed: float = 2000
 
+@onready var vacuum_audio = $AudioStreamPlayer2D
+
+func _ready():
+	vacuum_audio.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
