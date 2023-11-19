@@ -130,6 +130,7 @@ target_position = Vector2(0, -150)
 
 [node name="SwitchAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_m0ipw")
+volume_db = 6.0
 
 [node name="RoofRayCast2" type="RayCast2D" parent="."]
 position = Vector2(-37, -78)

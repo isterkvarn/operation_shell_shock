@@ -36,7 +36,6 @@ func _ready():
 	names_box.visible = false
 	
 	_from_disk()
-	
 	add_score(player_score.score)
 
 func add_score(score: float):
@@ -46,6 +45,7 @@ func add_score(score: float):
 		names_box.visible = true
 		ok_button.visible = false
 		start_label.visible = true
+		_populate_name_box()
 
 	score_text.text = str(int(score*100)/100.0)
 
@@ -64,7 +64,7 @@ func _add_score(name: String, score: float):
 	_to_disk()
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("start"):
 #		get_tree().change_scene_to_file("res://main.tscn")
 		get_tree().change_scene_to_file("res://levels/demo_level.tscn")
 
