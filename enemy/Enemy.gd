@@ -3,9 +3,7 @@ extends CharacterBody2D
 enum Facing {LEFT, RIGHT}
 
 @export var facing: Facing = Facing.RIGHT
-
-const SPEED = 500.0
-const JUMP_VELOCITY = -400.0
+@export var speed: float = 500.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var right_edge_finder = $RightEdgeFinder
 
 func _ready():
-	velocity.x = SPEED
+	velocity.x = speed
 	sprite.play("default")
 
 func _physics_process(delta):
@@ -44,7 +42,7 @@ func _on_area_2d_body_entered(body):
 
 func change_direction():
 	facing = Facing.LEFT if facing == Facing.RIGHT else Facing.RIGHT
-	velocity.x = SPEED if facing == Facing.RIGHT else -SPEED
+	velocity.x = speed if facing == Facing.RIGHT else -speed
 	sprite.flip_h = facing == Facing.LEFT
 
 func die():
