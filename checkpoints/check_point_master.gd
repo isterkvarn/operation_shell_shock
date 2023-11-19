@@ -102,11 +102,11 @@ func _restore_children(node):
 		bullet_scene.position = bullet_state.pos
 		bullet_scene.speed = bullet_state.speed
 		bullet_scene.rotation = bullet_state.rot
-		add_child(bullet_scene)
+		call_deferred("add_child", bullet_scene)
 	
 	for enemy_state in last_checkpoint.enemy_pos:
 		var enemy_scene = enemy.instantiate()
 		enemy_scene.position = enemy_state.pos
 		enemy_scene.speed = enemy_state.speed
 		enemy_scene.facing = enemy_state.facing
-		add_child(enemy_scene)
+		call_deferred("add_child", enemy_scene)
