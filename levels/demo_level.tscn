@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=14 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://cnr7yd4dkepc0" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cfx5pf827g4vs" path="res://checkpoints/checkpoint.tscn" id="7_8hflx"]
 [ext_resource type="PackedScene" uid="uid://yjvt14nxcl3p" path="res://death_pit/death_pit.tscn" id="8_xti72"]
 [ext_resource type="PackedScene" uid="uid://d1wg3qv1gw60p" path="res://bounce_field/bounce_field.tscn" id="9_nxrwg"]
+[ext_resource type="PackedScene" uid="uid://bplhv37kwxjpo" path="res://sounds/background_music.tscn" id="10_tbwpt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fnfmh"]
 font_size = 61
@@ -179,3 +180,7 @@ scale = Vector2(0.605, 0.605)
 [node name="Turret" parent="." instance=ExtResource("3_uepm8")]
 position = Vector2(19942, 454)
 mode = 0
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("10_tbwpt")]
+max_distance = 99999.0
+panning_strength = 0.0

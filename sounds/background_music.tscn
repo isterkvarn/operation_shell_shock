@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bplhv37kwxjpo"]
+
+[ext_resource type="AudioStream" uid="uid://cyq7h0d4ysqm5" path="res://sounds/operation_shellshock.mp3" id="1_hpoy5"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_hpoy5")
+autoplay = true
