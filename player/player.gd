@@ -46,11 +46,11 @@ func _physics_process(delta):
 	if not _is_under_roof():
 		_update_state(Input.is_action_pressed("switch_state"))
 	
-	if _is_under_roof() and abs(velocity.x) < 0.05:
+	if _is_under_roof() and abs(velocity.x) < 10:
 		if velocity.x >= 0:
-			velocity.x = 30
+			velocity.x = 400
 		else:
-			velocity.x = -30
+			velocity.x = -400
 		
 	if Input.is_action_just_pressed("ss_jump") and is_on_floor():
 		buffer_jump = true

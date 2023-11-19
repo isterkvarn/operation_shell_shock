@@ -37,6 +37,13 @@ func _ready():
 	
 	_from_disk()
 	add_score(player_score.score)
+	
+	if scores.size() == 0:
+		_add_score("Moa", 50.33)
+		_add_score("Zoe", 56.53)
+		_add_score("Malte", 81.51)
+		_add_score("Emanuel", 104.83)
+		_add_score("Gurka2", 122.02)
 
 func add_score(score: float):
 	if score == 0:
