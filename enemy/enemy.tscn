@@ -56,4 +56,11 @@ shape = SubResource("RectangleShape2D_1qi4a")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gj5r4")
 
+[node name="RightEdgeFinder" type="RayCast2D" parent="."]
+position = Vector2(0, -2)
+target_position = Vector2(200, 300)
+
+[node name="LeftEdgeFinder" type="RayCast2D" parent="."]
+target_position = Vector2(-200, 300)
+
 [connection signal="body_entered" from="CollisionArea" to="." method="_on_area_2d_body_entered"]

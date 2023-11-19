@@ -11,6 +11,8 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var sprite = $Sprite
+@onready var left_edge_finder = $LeftEdgeFinder
+@onready var right_edge_finder = $RightEdgeFinder
 
 func _ready():
 	velocity.x = SPEED
@@ -25,9 +27,14 @@ func _physics_process(delta):
 	# Wall collision
 	if(is_on_wall()):
 		change_direction()
+		
+	# Turn around when reaching end of platform
+	if ((facing == Facing.LEFT and left_edge_finder.is_colliding() == false) or 
+		(facing == Facing.RIGHT and right_edge_finder.is_colliding() == false)):
+		change_direction()
 
 	move_and_slide()
-	
+
 func _sprite_process():
 	pass
 	
