@@ -40,6 +40,13 @@ func _ready():
 	add_score(player_score.score)
 
 func add_score(score: float):
+	if score == 0:
+		name_input.visible = false
+		score_text.visible = false
+		names_box.visible = true
+		ok_button.visible = false
+		start_label.visible = true
+
 	score_text.text = str(int(score*100)/100.0)
 
 func _add_score(name: String, score: float):
