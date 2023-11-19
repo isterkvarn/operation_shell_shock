@@ -14,13 +14,15 @@ var _current_speed : float = 0.0
 var _is_in_shell : bool = false
 var _coyote_timer : float
 var score: float = 0.0
+var buffer_jump: bool = false
 
 @onready var sprite = $AnimatedSprite2D
 @onready var out_col = $CollisionShapeOut
 @onready var in_col = $CollisionShapeIn
 @onready var checkpoint_master: Node2D = %CheckPointMaster
 @onready var camera_2d = $Camera2D
-@onready var celing_ray_cast_2d = $CelingRayCast2D
+@onready var roof_finder1 = $RoofRayCast1
+@onready var roof_finder2 = $RoofRayCast2
 #@onready var jump_audio = $JumpAudio
 @onready var switch_audio = $SwitchAudio
 @onready var score_indicator = $Camera2D/ScoreIndicator
@@ -38,8 +40,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("switch_state"):
 		switch_audio.play()
 	
-	if not celing_ray_cast_2d.is_colliding():
+	if not _is_under_roof():
 		_update_state(Input.is_action_pressed("switch_state"))
+		
+	if Input.is_action_just_pressed("ss_jump"):
+		buffer_jump = true
 	
 	if _is_in_shell:
 		_in_shell(delta)
@@ -75,8 +80,9 @@ func _jump(delta):
 	else:
 		_coyote_timer -= delta
 	
-	if Input.is_action_just_pressed("ss_jump") and _coyote_timer > 0:
+	if buffer_jump and _coyote_timer > 0:
 		#jump_audio.play()
+		buffer_jump = false
 		velocity.y = -jump_velocity
 
 
@@ -88,9 +94,11 @@ func _out_of_shell(delta):
 
 
 func _in_shell(delta):
-	if is_on_floor() and not celing_ray_cast_2d.is_colliding():
+	if is_on_floor() and not _is_under_roof():
 		velocity.x = move_toward(velocity.x, 0, ground_friction * delta)
 
+func _is_under_roof() -> bool:
+	return roof_finder1.is_colliding() or roof_finder2.is_colliding()
 
 func _do_gravity():
 	if is_on_floor():

@@ -123,8 +123,15 @@ theme_override_fonts/normal_font = ExtResource("14_cnmfu")
 theme_override_font_sizes/normal_font_size = 64
 text = "000.00"
 
-[node name="CelingRayCast2D" type="RayCast2D" parent="."]
+[node name="RoofRayCast1" type="RayCast2D" parent="."]
+position = Vector2(32, -78)
+scale = Vector2(1, 0.5)
 target_position = Vector2(0, -150)
 
 [node name="SwitchAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_m0ipw")
+
+[node name="RoofRayCast2" type="RayCast2D" parent="."]
+position = Vector2(-32, -78)
+scale = Vector2(1, 0.5)
+target_position = Vector2(0, -150)
