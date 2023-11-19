@@ -52,7 +52,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = -30
 		
-	if Input.is_action_just_pressed("ss_jump"):
+	if Input.is_action_just_pressed("ss_jump") and is_on_floor():
 		buffer_jump = true
 	
 	if _is_in_shell:
