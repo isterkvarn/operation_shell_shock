@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnr7yd4dkepc0"]
+[gd_scene load_steps=19 format=3 uid="uid://cnr7yd4dkepc0"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_w07mu"]
 [ext_resource type="Texture2D" uid="uid://ir7n3j2o5qow" path="res://player/sprites/IMG_0062.png" id="2_lbj2m"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ceje1jtwxs6l8" path="res://player/sprites/IMG_0060.png" id="11_iofck"]
 [ext_resource type="Texture2D" uid="uid://dc7tnstrcypub" path="res://player/sprites/IMG_0061.png" id="12_6guce"]
 [ext_resource type="Script" path="res://player/camera.gd" id="13_qlm8e"]
+[ext_resource type="FontFile" uid="uid://ca5wgm85ht813" path="res://highscore/Octopus Game.ttf" id="14_cnmfu"]
 [ext_resource type="AudioStream" uid="uid://7sc2d6rdoc4n" path="res://sounds/switch.mp3" id="15_m0ipw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41rp2"]
@@ -112,6 +113,15 @@ top_level = true
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("13_qlm8e")
 wiggle_room = 400.0
+
+[node name="ScoreIndicator" type="RichTextLabel" parent="Camera2D"]
+offset_left = 945.0
+offset_top = -666.0
+offset_right = 1446.0
+offset_bottom = -563.0
+theme_override_fonts/normal_font = ExtResource("14_cnmfu")
+theme_override_font_sizes/normal_font_size = 64
+text = "000.00"
 
 [node name="CelingRayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -150)

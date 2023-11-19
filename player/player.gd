@@ -13,6 +13,7 @@ extends CharacterBody2D
 var _current_speed : float = 0.0
 var _is_in_shell : bool = false
 var _coyote_timer : float
+var score: float = 0.0
 
 @onready var sprite = $AnimatedSprite2D
 @onready var out_col = $CollisionShapeOut
@@ -22,10 +23,15 @@ var _coyote_timer : float
 @onready var celing_ray_cast_2d = $CelingRayCast2D
 #@onready var jump_audio = $JumpAudio
 @onready var switch_audio = $SwitchAudio
+@onready var score_indicator = $Camera2D/ScoreIndicator
 
 
 func _ready():
 	_current_speed = out_of_shell_speed
+
+
+func _process(delta):
+	_update_score(delta)
 
 
 func _physics_process(delta):
@@ -44,6 +50,11 @@ func _physics_process(delta):
 	update_sprite()
 	move_and_slide()
 
+
+func _update_score(delta):
+	score += delta
+	# I don't have the energy to look up rounding functions in Godot
+	score_indicator.text = str(int(score * 100)/100.0)
 
 func _update_state(new_state):
 	if new_state == _is_in_shell:

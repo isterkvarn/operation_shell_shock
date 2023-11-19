@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck7epgohof2tc"]
+
+[ext_resource type="Script" path="res://highscore/highscore.gd" id="1_6ewv1"]
+[ext_resource type="FontFile" uid="uid://xdfd20udoiqx" path="res://highscore/unispace bd.otf" id="2_xhwd7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eixpp"]
+font_size = 46
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hue0d"]
+font_size = 21
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxpsg"]
+font_size = 64
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Highscore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ewv1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.345098, 0.560784, 0.541176, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -411.0
+offset_right = 237.0
+offset_bottom = -344.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Highscores"
+label_settings = SubResource("LabelSettings_eixpp")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -293.0
+offset_right = 365.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartLabel" type="Label" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 265.0
+offset_right = 118.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press X to Start"
+label_settings = SubResource("LabelSettings_hue0d")
+
+[node name="Names" type="RichTextLabel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.162667
+anchor_top = 0.0233333
+anchor_right = 0.252
+anchor_bottom = 0.0233333
+offset_left = 88.0
+offset_top = 51.0
+offset_right = 388.0
+offset_bottom = 521.0
+theme_override_fonts/normal_font = ExtResource("2_xhwd7")
+metadata/_edit_use_anchors_ = true
+
+[node name="NameInput" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 209.0
+offset_right = 599.0
+offset_bottom = 259.0
+placeholder_text = "Name"
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 61.0
+offset_right = 568.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 64
+text = "33"
+label_settings = SubResource("LabelSettings_oxpsg")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 367.0
+offset_right = 450.0
+offset_bottom = 408.0
+text = "Ok"
+
+[connection signal="text_changed" from="Panel/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
