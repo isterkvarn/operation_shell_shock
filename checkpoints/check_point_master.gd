@@ -7,7 +7,7 @@ const DEATH_WALL_OFFSET: int = 2000
 const BULLET_GROUP: String = "bullet"
 
 
-@export var checkpoints: Array[Area2D]
+var checkpoints: Array[Area2D]
 @onready var bullet = load("res://turret/bullet.tscn")
 @onready var player: CharacterBody2D = %Player
 @onready var death_wall: Area2D = %DeathWall
@@ -52,7 +52,7 @@ func restore():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for checkpoint in checkpoints:
+	for checkpoint in get_children():
 		checkpoint.init(self)
 
 func _save_children(node):

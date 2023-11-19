@@ -11,4 +11,4 @@ func _ready():
 
 func _on_body_entered(body):
 	if body == player:
-		player.die()
+		player.hit_by_bullet() # this is a bullet, yes
