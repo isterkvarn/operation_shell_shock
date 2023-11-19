@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://highscore/win_area.gd" id="1_byu2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1n363"]
+size = Vector2(500, 500)
 
 [node name="WinArea" type="Area2D"]
 script = ExtResource("1_byu2y")

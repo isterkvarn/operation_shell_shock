@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://60d0u27uu4kh"]
+
+[ext_resource type="Script" path="res://bounce_field/bounce_field_point.gd" id="1_s8rvf"]
+[ext_resource type="Texture2D" uid="uid://d4hyiag6nwwsr" path="res://bounce_field/sprites/ball-1.png" id="2_u2ykc"]
+[ext_resource type="Texture2D" uid="uid://bl87l4uc2gtwo" path="res://bounce_field/sprites/ball-2.png" id="3_pcs14"]
+[ext_resource type="Texture2D" uid="uid://i43tlgb64ihy" path="res://bounce_field/sprites/ball-3.png" id="4_630pu"]
+[ext_resource type="Texture2D" uid="uid://d4ejiw2yoc3oi" path="res://bounce_field/sprites/ball-4.png" id="5_qsdue"]
+[ext_resource type="Texture2D" uid="uid://tyjjpeetyg2x" path="res://bounce_field/sprites/ball-5.png" id="6_3im8l"]
+[ext_resource type="Texture2D" uid="uid://dyppc2h3wlmd4" path="res://bounce_field/sprites/ball-6.png" id="7_blgap"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sksw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u2ykc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pcs14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_630pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qsdue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3im8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_blgap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="bounce_field_point" type="Node2D"]
+script = ExtResource("1_s8rvf")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_sksw5")
