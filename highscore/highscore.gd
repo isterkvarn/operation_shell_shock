@@ -11,6 +11,7 @@ const MAX_NAME_LENGTH: int = 16
 @onready var start_label = $Panel/StartLabel
 @onready var player_score = get_node("/root/PlayerScore")
 
+
 class ScoreData:
 	var name: String
 	var score: float

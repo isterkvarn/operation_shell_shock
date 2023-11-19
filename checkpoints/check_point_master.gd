@@ -5,12 +5,15 @@ extends Node2D
 # the checkpoint on a respawn
 const DEATH_WALL_OFFSET: int = 2000
 const BULLET_GROUP: String = "bullet"
+const ENEMY_GROUP: String = "enemies"
 
 
-@export var checkpoints: Array[Area2D]
+var checkpoints: Array[Area2D]
 @onready var bullet = load("res://turret/bullet.tscn")
+@onready var enemy = load("res://enemy/enemy.tscn")
 @onready var player: CharacterBody2D = %Player
 @onready var death_wall: Area2D = %DeathWall
+
 var last_checkpoint: SaveState = null
 
 
@@ -25,11 +28,23 @@ class BulletState:
 		self.rot = rot
 
 
+class EnemyState:
+	var pos: Vector2
+	var speed: float
+	var facing
+	
+	func _init(pos: Vector2, speed: float, facing):
+		self.pos = pos
+		self.speed = speed
+		self.facing = facing
+
+
 class SaveState:
 	var player: CharacterBody2D
 	var death_wall: Area2D
 	var player_pos: Vector2
 	var bullet_pos: Array[BulletState]
+	var enemy_pos: Array[EnemyState]
 	
 	func _init(player: CharacterBody2D, death_wall: Area2D):
 		self.player = player
@@ -52,7 +67,7 @@ func restore():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for checkpoint in checkpoints:
+	for checkpoint in get_children():
 		checkpoint.init(self)
 
 func _save_children(node):
@@ -63,12 +78,19 @@ func _save_children(node):
 			node.get_rotation()
 		)
 		last_checkpoint.bullet_pos.append(bullet_state)
+	elif node.is_in_group(ENEMY_GROUP):
+		var enemy_state = EnemyState.new(
+			node.get_global_position(),
+			node.speed,
+			node.facing
+		)
+		last_checkpoint.enemy_pos.append(enemy_state)
 
 	for child in node.get_children():
 		_save_children(child)
 
 func _free_children(node):
-	if node.is_in_group(BULLET_GROUP):
+	if node.is_in_group(BULLET_GROUP) or node.is_in_group(ENEMY_GROUP):
 		node.queue_free()
 
 	for child in node.get_children():
@@ -81,3 +103,10 @@ func _restore_children(node):
 		bullet_scene.speed = bullet_state.speed
 		bullet_scene.rotation = bullet_state.rot
 		add_child(bullet_scene)
+	
+	for enemy_state in last_checkpoint.enemy_pos:
+		var enemy_scene = enemy.instantiate()
+		enemy_scene.position = enemy_state.pos
+		enemy_scene.speed = enemy_state.speed
+		enemy_scene.facing = enemy_state.facing
+		add_child(enemy_scene)
