@@ -1,28 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0x4m2m8anjv1"]
+[gd_scene load_steps=10 format=3 uid="uid://d0x4m2m8anjv1"]
 
 [ext_resource type="Script" path="res://enemy/Enemy.gd" id="1_d2vgl"]
-[ext_resource type="Texture2D" uid="uid://bcjxqv7a0kar" path="res://enemy/sprites/enem.png" id="2_yq5m5"]
+[ext_resource type="Texture2D" uid="uid://c67l15g57s415" path="res://enemy/sprites/roomba_1.png" id="2_p3gi6"]
+[ext_resource type="Texture2D" uid="uid://cb17xe5sdmaba" path="res://enemy/sprites/roomba_2.png" id="3_na0m2"]
+[ext_resource type="Texture2D" uid="uid://pkguv7aleo7l" path="res://enemy/sprites/roomba_3.png" id="4_wx6pp"]
+[ext_resource type="Texture2D" uid="uid://dp2i5pagkxra6" path="res://enemy/sprites/roomba_4.png" id="5_n3oy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opl2o"]
-size = Vector2(250, 200)
+size = Vector2(250, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu47g"]
 size = Vector2(150, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qi4a"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj5r4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p3gi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_na0m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wx6pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n3oy0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
-position = Vector2(1098, 826)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d2vgl")
 
 [node name="CollisionArea" type="Area2D" parent="."]
 
 [node name="HazardHitbox" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(0, 68.5)
 shape = SubResource("RectangleShape2D_opl2o")
-
-[node name="7up" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_yq5m5")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 200)
@@ -32,5 +52,15 @@ shape = SubResource("RectangleShape2D_lu47g")
 
 [node name="MovementShape" type="CollisionShape2D" parent="MovementArea"]
 shape = SubResource("RectangleShape2D_1qi4a")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gj5r4")
+
+[node name="RightEdgeFinder" type="RayCast2D" parent="."]
+position = Vector2(0, -2)
+target_position = Vector2(200, 300)
+
+[node name="LeftEdgeFinder" type="RayCast2D" parent="."]
+target_position = Vector2(-200, 300)
 
 [connection signal="body_entered" from="CollisionArea" to="." method="_on_area_2d_body_entered"]
