@@ -124,7 +124,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = "000.00"
 
 [node name="RoofRayCast1" type="RayCast2D" parent="."]
-position = Vector2(32, -78)
+position = Vector2(37, -78)
 scale = Vector2(1, 0.5)
 target_position = Vector2(0, -150)
 
@@ -132,6 +132,18 @@ target_position = Vector2(0, -150)
 stream = ExtResource("15_m0ipw")
 
 [node name="RoofRayCast2" type="RayCast2D" parent="."]
-position = Vector2(-32, -78)
+position = Vector2(-37, -78)
 scale = Vector2(1, 0.5)
+target_position = Vector2(0, -150)
+
+[node name="WallRayCast1" type="RayCast2D" parent="."]
+position = Vector2(-26, -40.375)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+target_position = Vector2(0, -150)
+
+[node name="WallRayCast2" type="RayCast2D" parent="."]
+position = Vector2(-14, -40)
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
 target_position = Vector2(0, -150)

@@ -23,6 +23,9 @@ var buffer_jump: bool = false
 @onready var camera_2d = $Camera2D
 @onready var roof_finder1 = $RoofRayCast1
 @onready var roof_finder2 = $RoofRayCast2
+@onready var wall_finder1 = $WallRayCast1
+@onready var wall_finder2 = $WallRayCast2
+
 #@onready var jump_audio = $JumpAudio
 @onready var switch_audio = $SwitchAudio
 @onready var score_indicator = $Camera2D/ScoreIndicator
@@ -42,6 +45,12 @@ func _physics_process(delta):
 	
 	if not _is_under_roof():
 		_update_state(Input.is_action_pressed("switch_state"))
+	
+	if _is_under_roof() and abs(velocity.x) < 0.05:
+		if velocity.x >= 0:
+			velocity.x = 30
+		else:
+			velocity.x = -30
 		
 	if Input.is_action_just_pressed("ss_jump"):
 		buffer_jump = true
@@ -98,7 +107,12 @@ func _in_shell(delta):
 		velocity.x = move_toward(velocity.x, 0, ground_friction * delta)
 
 func _is_under_roof() -> bool:
-	return roof_finder1.is_colliding() or roof_finder2.is_colliding()
+	return (
+		(roof_finder1.is_colliding() or 
+		roof_finder2.is_colliding()) and
+		not wall_finder1.is_colliding() and
+		not wall_finder2.is_colliding()
+	)
 
 func _do_gravity():
 	if is_on_floor():
