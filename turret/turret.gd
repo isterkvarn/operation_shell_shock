@@ -1,6 +1,5 @@
 extends Node2D
 
-
 enum TurretMode {TRACK_PLAYER, POINT}
 
 @export var firing_speed: float = 0.5
@@ -43,9 +42,7 @@ func _update_sprite():
 	if mode == TurretMode.TRACK_PLAYER:
 		barrel.look_at(player.get_position())
 		var deg = int(barrel.get_rotation() * 57.3)	 % 360 #convert rad to deg 
-		print(deg)
 		barrel.flip_v = (deg > 90 and deg < 270) or (deg < 90 and deg > 270)
-		#barrel_sprite.flip_v = (r > PI / 2 or r < -PI / 2)
 
 func _do_the_shooty():
 	barrel.play("the_shooty") 
