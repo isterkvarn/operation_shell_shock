@@ -6,6 +6,7 @@ enum TurretMode {TRACK_PLAYER, POINT}
 @export var bullet_speed: float = 1200.0
 @export var mode: TurretMode
 @export var point: Marker2D
+@export var base_rotation_deg: int = 0
 
 @onready var laser = load("res://turret/bullet.tscn")
 @onready var base_sprite = $TurretBase
@@ -17,6 +18,11 @@ var time: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	barrel.play('the_shooty')
+	barrel.frame = 3
+	
+	base_sprite.set_rotation(base_rotation_deg * PI / 180)
+	
 	if mode == TurretMode.POINT:
 		if point == null:
 			print("Add a marker to turret")
