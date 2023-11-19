@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=19 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://cnr7yd4dkepc0" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://xym1pnfx5ye7" path="res://laser_wall/laser_wall.tscn" id="12_8qfgr"]
 [ext_resource type="PackedScene" path="res://laser_wall/laser_point.tscn" id="13_eqe67"]
 [ext_resource type="PackedScene" uid="uid://60d0u27uu4kh" path="res://bounce_field/bounce_field_point.tscn" id="14_pvqxw"]
+[ext_resource type="PackedScene" uid="uid://cj2fv28ao5ptv" path="res://highscore/win_area.tscn" id="15_c7fyl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fnfmh"]
 font_size = 61
@@ -325,3 +326,7 @@ position = Vector2(35182, 564)
 
 [node name="bounce_field_point6" parent="." instance=ExtResource("14_pvqxw")]
 position = Vector2(35927, 572)
+
+[node name="WinArea" parent="." instance=ExtResource("15_c7fyl")]
+position = Vector2(39725, 68)
+scale = Vector2(1.5, 1.5)
