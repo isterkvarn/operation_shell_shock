@@ -10,7 +10,7 @@ const MAX_NAME_LENGTH: int = 16
 @onready var ok_button = $Panel/Button
 @onready var start_label = $Panel/StartLabel
 @onready var player_score = get_node("/root/PlayerScore")
-
+@onready var http = $HTTPRequest
 
 class ScoreData:
 	var name: String
@@ -53,11 +53,14 @@ func add_score(score: float):
 		ok_button.visible = false
 		start_label.visible = true
 		_populate_name_box()
+		http.get_scores(_on_response)
+		
 
 	score_text.text = str(int(score*100)/100.0)
 
 func _add_score(name: String, score: float):
 	var new_score: ScoreData = ScoreData.new(name, score)
+	http.new_score(name, score, _on_response)
 
 	for i in range(scores.size()):
 		var old_score: ScoreData = scores[i]
@@ -115,6 +118,24 @@ func _populate_name_box():
 			names_box.text += " "
 		
 		names_box.text += str(int(score.score*100)/100.0) + "\n"
+
+func _on_response(result, response_code, headers, body):
+	var json = JSON.parse_string(body.get_string_from_utf8())
+	
+	if response_code == 201:
+		http.get_scores(_on_response)
+	
+	if not response_code == 200:
+		return
+		
+	names_box.text = ""
+
+	for score in json:
+		names_box.text += score["name"]
+		for i in range(PADDING - len(score["name"])):
+			names_box.text += " "
+		
+		names_box.text += str(int(score["score"]*100)/100.0) + "\n"
 
 func _on_button_pressed():
 	if len(name_input.text) == 0:

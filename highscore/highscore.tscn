@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck7epgohof2tc"]
+[gd_scene load_steps=7 format=3 uid="uid://ck7epgohof2tc"]
 
 [ext_resource type="Script" path="res://highscore/highscore.gd" id="1_6ewv1"]
 [ext_resource type="FontFile" uid="uid://xdfd20udoiqx" path="res://highscore/unispace bd.otf" id="2_xhwd7"]
+[ext_resource type="Script" path="res://highscore/HTTPRequest.gd" id="3_j2fyj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eixpp"]
 font_size = 46
@@ -127,6 +128,9 @@ offset_top = 367.0
 offset_right = 450.0
 offset_bottom = 408.0
 text = "Ok"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("3_j2fyj")
 
 [connection signal="text_changed" from="Panel/NameInput" to="." method="_on_name_input_text_changed"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
