@@ -112,9 +112,14 @@ func _on_name_input_text_changed(new_text):
 		name_input.text = new_text.left(MAX_NAME_LENGTH)
 
 func _populate_name_box():
+	var j = 0
+	
 	for score in scores:
-		names_box.text += score.name
-		for i in range(PADDING - len(score.name)):
+		j += 1;
+		var display = str(j) + ". " + score.name
+		
+		names_box.text += display
+		for i in range(PADDING - len(display)):
 			names_box.text += " "
 		
 		names_box.text += str(int(score.score*100)/100.0) + "\n"
@@ -129,10 +134,14 @@ func _on_response(result, response_code, headers, body):
 		return
 		
 	names_box.text = ""
-
+	var j = 0
+	
 	for score in json:
-		names_box.text += score["name"]
-		for i in range(PADDING - len(score["name"])):
+		j += 1
+		var display = str(j) + ". " + score["name"]
+		
+		names_box.text += display
+		for i in range(PADDING - len(display)):
 			names_box.text += " "
 		
 		names_box.text += str(int(score["score"]*100)/100.0) + "\n"
