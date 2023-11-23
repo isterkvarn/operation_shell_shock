@@ -72,38 +72,38 @@ position = Vector2(8507, 318)
 position = Vector2(11151, 318)
 lerp = true
 
-[node name="CameraMarker11" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker4" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(11671, 465)
 
-[node name="CameraMarker12" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker5" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(15123, 465)
 lerp = true
 
-[node name="CameraMarker5" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker6" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(15710, 1008)
 
-[node name="CameraMarker13" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker7" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(26078, 1008)
 lerp = true
 
-[node name="CameraMarker6" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker8" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(26687, 748)
 
-[node name="CameraMarker14" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker9" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(27505, 748)
 lerp = true
 
-[node name="CameraMarker7" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker10" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(29266, 895)
 
-[node name="CameraMarker15" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker11" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(34242, 895)
 lerp = true
 
-[node name="CameraMarker8" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker12" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(34615, 745)
 
-[node name="CameraMarker17" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+[node name="CameraMarker13" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(36095, 659)
 
 [node name="TileMap" parent="." instance=ExtResource("2_0e213")]
