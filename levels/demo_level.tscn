@@ -59,6 +59,7 @@ position = Vector2(-4514, 607)
 out_of_shell_speed = 1300.0
 
 [node name="Camera" parent="Player" instance=ExtResource("2_5fijp")]
+position = Vector2(-4505, 396)
 
 [node name="TileMap" parent="." instance=ExtResource("2_0e213")]
 visible = false
