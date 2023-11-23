@@ -28,7 +28,7 @@ var buffer_jump: bool = false
 
 #@onready var jump_audio = $JumpAudio
 @onready var switch_audio = $SwitchAudio
-@onready var score_indicator = $Camera2D/ScoreIndicator
+@onready var score_indicator = $CanvasLayer/ScoreIndicator
 
 
 func _ready():
