@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=26 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://cnr7yd4dkepc0" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
 [ext_resource type="PackedScene" uid="uid://d3r1dmlc758q2" path="res://player/camera/camera.tscn" id="2_5fijp"]
+[ext_resource type="PackedScene" uid="uid://cx8vldb4n725s" path="res://player/camera/camera_maker.tscn" id="3_fqgab"]
 [ext_resource type="PackedScene" uid="uid://cdvwoinmougxm" path="res://turret/turret.tscn" id="3_uepm8"]
 [ext_resource type="PackedScene" uid="uid://rufm4nojtjd7" path="res://death_wall/death_wall.tscn" id="4_w7pqe"]
 [ext_resource type="PackedScene" uid="uid://fvvsyketqois" path="res://checkpoints/check_point_master.tscn" id="5_bjulw"]
@@ -55,11 +56,41 @@ label_settings = SubResource("LabelSettings_fnfmh")
 
 [node name="Player" parent="." instance=ExtResource("1_jjy5y")]
 unique_name_in_owner = true
-position = Vector2(-4514, 607)
+position = Vector2(39112, 232)
 out_of_shell_speed = 1300.0
 
 [node name="Camera" parent="Player" instance=ExtResource("2_5fijp")]
 position = Vector2(-4505, 396)
+
+[node name="CameraMarker1" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(6307, 804)
+
+[node name="CameraMarker2" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(8609, 318)
+
+[node name="CameraMarker3" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(11185, 465)
+
+[node name="CameraMarker4" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(15124, 736)
+
+[node name="CameraMarker5" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(15710, 1008)
+
+[node name="CameraMarker6" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(26053, 466)
+
+[node name="CameraMarker7" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(27834, 895)
+
+[node name="CameraMarker8" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(34615, 674)
+
+[node name="CameraMarker9" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(35924, 499)
+
+[node name="CameraMarker10" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(38495, 685)
 
 [node name="TileMap" parent="." instance=ExtResource("2_0e213")]
 visible = false
