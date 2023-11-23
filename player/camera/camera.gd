@@ -25,8 +25,16 @@ func _physics_process(delta):
 	position.x = lerp(position.x, player.global_position.x + _x_offset, _x_lerp_weight)
 	
 	var new_y = _start_y
-	for camera_marker in _camera_markers:
-		if player.position.x > camera_marker.position.x:
-			new_y = camera_marker.position.y - 1080 * 0.5 / zoom.y
+	for i in range(len(_camera_markers)):
+		if _camera_markers[i].lerp and not i == len(_camera_markers):
+			if player.position.x > _camera_markers[i].position.x and player.position.x < _camera_markers[i + 1].position.x:
+				var marker_1_pos = _camera_markers[i].position
+				var marker_2_pos = _camera_markers[i + 1].position
+				var lerp_weight = (player.position.x - marker_1_pos.x) / (marker_2_pos.x - marker_1_pos.x)
+				new_y = lerp(marker_1_pos.y, marker_2_pos.y, lerp_weight) 
+				new_y -= 1080 * 0.5 / zoom.y
+				break
+		elif player.position.x > _camera_markers[i].position.x:
+			new_y = _camera_markers[i].position.y - 1080 * 0.5 / zoom.y
 	
 	position.y = lerp(position.y, new_y, _y_lerp_weight)

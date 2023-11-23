@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnr7yd4dkepc0" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
 [ext_resource type="PackedScene" uid="uid://d3r1dmlc758q2" path="res://player/camera/camera.tscn" id="2_5fijp"]
-[ext_resource type="PackedScene" uid="uid://cx8vldb4n725s" path="res://player/camera/camera_maker.tscn" id="3_fqgab"]
+[ext_resource type="PackedScene" uid="uid://cx8vldb4n725s" path="res://player/camera/camera_marker.tscn" id="3_fqgab"]
 [ext_resource type="PackedScene" uid="uid://cdvwoinmougxm" path="res://turret/turret.tscn" id="3_uepm8"]
 [ext_resource type="PackedScene" uid="uid://rufm4nojtjd7" path="res://death_wall/death_wall.tscn" id="4_w7pqe"]
 [ext_resource type="PackedScene" uid="uid://fvvsyketqois" path="res://checkpoints/check_point_master.tscn" id="5_bjulw"]
@@ -56,41 +56,55 @@ label_settings = SubResource("LabelSettings_fnfmh")
 
 [node name="Player" parent="." instance=ExtResource("1_jjy5y")]
 unique_name_in_owner = true
-position = Vector2(-4505, 620)
+position = Vector2(-4505, 612)
 out_of_shell_speed = 1300.0
 
 [node name="Camera" parent="Player" instance=ExtResource("2_5fijp")]
 position = Vector2(-4505, 396)
 
 [node name="CameraMarker1" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(6307, 804)
+position = Vector2(6307, 834)
 
 [node name="CameraMarker2" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(8609, 318)
+position = Vector2(8507, 318)
 
 [node name="CameraMarker3" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(11185, 465)
+position = Vector2(11151, 318)
+lerp = true
 
-[node name="CameraMarker4" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(15124, 736)
+[node name="CameraMarker11" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(11671, 465)
+
+[node name="CameraMarker12" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(15123, 465)
+lerp = true
 
 [node name="CameraMarker5" parent="Player/Camera" instance=ExtResource("3_fqgab")]
 position = Vector2(15710, 1008)
 
+[node name="CameraMarker13" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(26078, 1008)
+lerp = true
+
 [node name="CameraMarker6" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(26053, 466)
+position = Vector2(26687, 748)
+
+[node name="CameraMarker14" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(27505, 748)
+lerp = true
 
 [node name="CameraMarker7" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(27834, 895)
+position = Vector2(29266, 895)
+
+[node name="CameraMarker15" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(34242, 895)
+lerp = true
 
 [node name="CameraMarker8" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(34615, 674)
+position = Vector2(34615, 745)
 
-[node name="CameraMarker9" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(35924, 499)
-
-[node name="CameraMarker10" parent="Player/Camera" instance=ExtResource("3_fqgab")]
-position = Vector2(38495, 685)
+[node name="CameraMarker17" parent="Player/Camera" instance=ExtResource("3_fqgab")]
+position = Vector2(36095, 659)
 
 [node name="TileMap" parent="." instance=ExtResource("2_0e213")]
 visible = false
@@ -379,6 +393,7 @@ z_index = -1
 position = Vector2(386, 369)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("16_svcgs")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
 z_index = 1
@@ -389,15 +404,18 @@ z_index = -1
 position = Vector2(11951, 93)
 scale = Vector2(1.83, 1.83)
 texture = ExtResource("18_vf8xm")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(23014, 365)
 scale = Vector2(2.08, 2.08)
 texture = ExtResource("19_5i8t2")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(34686, 348)
 scale = Vector2(2.37, 2.37)
 texture = ExtResource("20_jbowq")
+metadata/_edit_lock_ = true

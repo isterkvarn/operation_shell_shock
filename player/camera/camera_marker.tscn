@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx8vldb4n725s"]
+
+[ext_resource type="Script" path="res://player/camera/camera_marker.gd" id="1_qqd3r"]
+
+[node name="CameraMarker" type="Marker2D" groups=["camera_markers"]]
+top_level = true
+script = ExtResource("1_qqd3r")
