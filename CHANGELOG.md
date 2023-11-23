@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed:
+
+- Made Camera move smoother relative to the player throughout the level.
+
 ## [0.1.0] - 2023-11-23
 
 ### Added:
@@ -15,10 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Player and Camera
 - Level 1:
 	- Turrets
-	- Roombas
-	- Bouncable Lazer Fields
-	- Lazer Doors
-	- Vaccum Cleaner Death Wall
+	- Rumbas
+	- Bouncable Laser Fields
+	- Laser Doors
+	- Vacuum Cleaner Death Wall
 - Sound Effects
 - Music
 - High-Score System
