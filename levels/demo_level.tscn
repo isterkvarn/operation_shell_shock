@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://2u2cdsx2bifi"]
+[gd_scene load_steps=25 format=3 uid="uid://2u2cdsx2bifi"]
 
 [ext_resource type="PackedScene" uid="uid://cnr7yd4dkepc0" path="res://player/player.tscn" id="1_jjy5y"]
 [ext_resource type="PackedScene" uid="uid://vy8vlwm3i6wm" path="res://tilemap/demo_tile_map.tscn" id="2_0e213"]
+[ext_resource type="PackedScene" uid="uid://d3r1dmlc758q2" path="res://player/camera/camera.tscn" id="2_5fijp"]
 [ext_resource type="PackedScene" uid="uid://cdvwoinmougxm" path="res://turret/turret.tscn" id="3_uepm8"]
 [ext_resource type="PackedScene" uid="uid://rufm4nojtjd7" path="res://death_wall/death_wall.tscn" id="4_w7pqe"]
 [ext_resource type="PackedScene" uid="uid://fvvsyketqois" path="res://checkpoints/check_point_master.tscn" id="5_bjulw"]
@@ -13,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bplhv37kwxjpo" path="res://sounds/background_music.tscn" id="10_tbwpt"]
 [ext_resource type="PackedScene" uid="uid://xym1pnfx5ye7" path="res://laser_wall/laser_wall.tscn" id="12_8qfgr"]
 [ext_resource type="PackedScene" uid="uid://btwior5lyax08" path="res://laser_wall/laser_point.tscn" id="13_eqe67"]
-[ext_resource type="PackedScene" path="res://bounce_field/bounce_field_point.tscn" id="14_pvqxw"]
+[ext_resource type="PackedScene" uid="uid://60d0u27uu4kh" path="res://bounce_field/bounce_field_point.tscn" id="14_pvqxw"]
 [ext_resource type="PackedScene" uid="uid://cj2fv28ao5ptv" path="res://highscore/win_area.tscn" id="15_c7fyl"]
 [ext_resource type="Texture2D" uid="uid://frd4cwlwascu" path="res://environment/background_1.png" id="16_svcgs"]
 [ext_resource type="Texture2D" uid="uid://desmlvfn4vd4t" path="res://environment/foreground_1.png" id="17_an48s"]
@@ -56,6 +57,8 @@ label_settings = SubResource("LabelSettings_fnfmh")
 unique_name_in_owner = true
 position = Vector2(-4514, 607)
 out_of_shell_speed = 1300.0
+
+[node name="Camera" parent="Player" instance=ExtResource("2_5fijp")]
 
 [node name="TileMap" parent="." instance=ExtResource("2_0e213")]
 visible = false

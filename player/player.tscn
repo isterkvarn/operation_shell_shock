@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnr7yd4dkepc0"]
+[gd_scene load_steps=18 format=3 uid="uid://cnr7yd4dkepc0"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_w07mu"]
 [ext_resource type="Texture2D" uid="uid://ir7n3j2o5qow" path="res://player/sprites/IMG_0062.png" id="2_lbj2m"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dhd87b766p6jq" path="res://player/sprites/IMG_0059.png" id="10_ideok"]
 [ext_resource type="Texture2D" uid="uid://ceje1jtwxs6l8" path="res://player/sprites/IMG_0060.png" id="11_iofck"]
 [ext_resource type="Texture2D" uid="uid://dc7tnstrcypub" path="res://player/sprites/IMG_0061.png" id="12_6guce"]
-[ext_resource type="Script" path="res://player/camera.gd" id="13_qlm8e"]
 [ext_resource type="FontFile" uid="uid://ca5wgm85ht813" path="res://highscore/Octopus Game.ttf" id="14_cnmfu"]
 [ext_resource type="AudioStream" uid="uid://7sc2d6rdoc4n" path="res://sounds/switch.mp3" id="15_m0ipw"]
 
@@ -101,11 +100,6 @@ shape = SubResource("RectangleShape2D_05reo")
 position = Vector2(0, -42)
 shape = SubResource("RectangleShape2D_fo7p5")
 disabled = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-top_level = true
-zoom = Vector2(0.8, 0.8)
-script = ExtResource("13_qlm8e")
 
 [node name="RoofRayCast1" type="RayCast2D" parent="."]
 position = Vector2(37, -78)
