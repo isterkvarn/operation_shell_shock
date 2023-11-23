@@ -102,17 +102,10 @@ position = Vector2(0, -42)
 shape = SubResource("RectangleShape2D_fo7p5")
 disabled = true
 
-[node name="CameraAnchorRight" type="Marker2D" parent="."]
-position = Vector2(800, -306)
-
-[node name="CameraAnchorLeft" type="Marker2D" parent="."]
-position = Vector2(-800, -306)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("13_qlm8e")
-wiggle_room = 400.0
 
 [node name="RoofRayCast1" type="RayCast2D" parent="."]
 position = Vector2(37, -78)
