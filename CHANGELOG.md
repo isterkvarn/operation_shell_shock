@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed:
 
-- Made Camera move smoother relative to the player throughout the level.
+- Make Camera move smoother relative to the player throughout the level.
 
 ## [0.1.0] - 2023-11-23
 
