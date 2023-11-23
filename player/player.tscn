@@ -130,10 +130,12 @@ target_position = Vector2(0, -150)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreIndicator" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 945.0
-offset_top = -666.0
-offset_right = 1446.0
-offset_bottom = -563.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -251.0
+offset_bottom = 103.0
+grow_horizontal = 0
 theme_override_fonts/normal_font = ExtResource("14_cnmfu")
 theme_override_font_sizes/normal_font_size = 64
 text = "000.00"
