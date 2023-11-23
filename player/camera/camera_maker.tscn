@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cx8vldb4n725s"]
+
+[node name="CameraMarker" type="Marker2D" groups=["camera_markers"]]
