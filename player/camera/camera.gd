@@ -4,7 +4,7 @@ var OFFSET_SPEED: int = 800
 var MAX_X_OFFSET: float = 500
 var MIN_X_OFFSET: float = -200
 var X_LERP_WEIGHT: float = 0.25
-var Y_LERP_WEIGHT: float = 0.25
+var Y_LERP_WEIGHT: float = 0.05
 
 var _x_offset: float = 0.0
 var _camera_markers: Array[Marker2D]
